@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Planejamento Financeiro</title>
+    <link rel="stylesheet" href="static/style.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <span class="logo">💸 Finanças</span>
+            <a href="/">Resumo</a>
+            <a href="/transacoes">Transações</a>
+            <a href="/planejamento" class="active">Planejamento</a>
+        </nav>
+    </header>
+    <main>
+        <h1>Planejamento Financeiro</h1>
+        <section class="form-section">
+            <h2>Metas de Economia</h2>
+            <form id="form-meta">
+                <label>Nome da Meta: <input type="text" id="nome-meta" required></label>
+                <label>Valor Objetivo: <input type="number" id="valor-objetivo" step="0.01" required></label>
+                <button type="submit">Adicionar Meta</button>
+            </form>
+        </section>
+        <section>
+            <h2>Minhas Metas</h2>
+            <div id="metas-lista" class="metas-lista">
+                <!-- Cards dinâmicos -->
+            </div>
+        </section>
+    </main>
+    <script src="static/script.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            carregarMetas();
+        });
+    </script>
+</body>
+</html>

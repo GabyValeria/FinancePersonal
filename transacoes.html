@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Transações Financeiras</title>
+    <link rel="stylesheet" href="static/style.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <span class="logo">💸 Finanças</span>
+            <a href="/">Resumo</a>
+            <a href="/transacoes" class="active">Transações</a>
+            <a href="/planejamento">Planejamento</a>
+        </nav>
+    </header>
+    <main>
+        <h1>Transações</h1>
+        <section class="form-section">
+            <h2>Adicionar/Editar Transação</h2>
+            <form id="form-transacao">
+                <input type="hidden" id="transacao-id">
+                <label>Data: <input type="date" id="data" required></label>
+                <label>Descrição: <input type="text" id="descricao" required></label>
+                <label>Valor: <input type="number" id="valor" step="0.01" required></label>
+                <label>Tipo:
+                    <select id="tipo" required>
+                        <option value="entrada">Entrada</option>
+                        <option value="saida">Saída</option>
+                    </select>
+                </label>
+                <label>Categoria:
+                    <input type="text" id="categoria" required>
+                </label>
+                <button type="submit">Salvar</button>
+                <button type="button" id="cancelar-edicao" style="display:none;">Cancelar</button>
+            </form>
+        </section>
+        <section>
+            <h2>Transações</h2>
+            <div class="filtros">
+                <label>Data Inicial: <input type="date" id="filtro-inicio"></label>
+                <label>Data Final: <input type="date" id="filtro-fim"></label>
+                <label>Tipo:
+                    <select id="filtro-tipo">
+                        <option value="">Todos</option>
+                        <option value="entrada">Entrada</option>
+                        <option value="saida">Saída</option>
+                    </select>
+                </label>
+                <button onclick="filtrarTransacoes()">Filtrar</button>
+            </div>
+            <div class="table-responsive">
+                <table id="tabela-transacoes">
+                    <thead>
+                        <tr>
+                            <th>Data</th>
+                            <th>Descrição</th>
+                            <th>Valor</th>
+                            <th>Tipo</th>
+                            <th>Categoria</th>
+                            <th>Ações</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Linhas dinâmicas -->
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+    <script src="static/script.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            carregarTransacoes();
+        });
+    </script>
+</body>
+</html>

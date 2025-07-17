@@ -1,0 +1,58 @@
+{
+  "transacoes": [
+    {
+      "id": "t1",
+      "data": "2025-07-15",
+      "descricao": "Salário",
+      "valor": 3500.00,
+      "tipo": "entrada",
+      "categoria": "Salário"
+    },
+    {
+      "id": "t2",
+      "data": "2025-07-10",
+      "descricao": "Mercado",
+      "valor": 400.50,
+      "tipo": "saida",
+      "categoria": "Alimentação"
+    },
+    {
+      "id": "t3",
+      "data": "2025-07-05",
+      "descricao": "Academia",
+      "valor": 120.00,
+      "tipo": "saida",
+      "categoria": "Saúde"
+    },
+    {
+      "id": "t4",
+      "data": "2025-06-20",
+      "descricao": "Freelance",
+      "valor": 900.00,
+      "tipo": "entrada",
+      "categoria": "Serviços"
+    },
+    {
+      "id": "t5",
+      "data": "2025-06-12",
+      "descricao": "Farmácia",
+      "valor": 80.00,
+      "tipo": "saida",
+      "categoria": "Saúde"
+    }
+  ],
+  "metas": [
+    {
+      "id": "m1",
+      "nome": "Reserva de Emergência",
+      "objetivo": 5000.00,
+      "atual": 0
+    },
+    {
+      "id": "m2",
+      "nome": "Viagem",
+      "objetivo": 3500.00,
+      "atual": 0
+    }
+  ]
+}

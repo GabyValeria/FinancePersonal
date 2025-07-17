@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Painel Financeiro</title>
+    <link rel="stylesheet" href="static/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <header>
+        <nav>
+            <span class="logo">💸 Finanças</span>
+            <a href="/" class="active">Resumo</a>
+            <a href="/transacoes">Transações</a>
+            <a href="/planejamento">Planejamento</a>
+        </nav>
+    </header>
+    <main>
+        <h1>Resumo Financeiro</h1>
+        <section class="dashboard">
+            <div class="card entrada">
+                <h2>Entradas</h2>
+                <p id="entradas"></p>
+            </div>
+            <div class="card saida">
+                <h2>Saídas</h2>
+                <p id="saidas"></p>
+            </div>
+            <div class="card saldo">
+                <h2>Saldo Atual</h2>
+                <p id="saldo"></p>
+            </div>
+        </section>
+        <section class="graficos-resumo">
+            <div class="grafico-card">
+                <h3>Distribuição por Categoria</h3>
+                <canvas id="grafico-categorias"></canvas>
+            </div>
+            <div class="grafico-card">
+                <h3>Entradas vs Saídas (Últimos 6 meses)</h3>
+                <canvas id="grafico-mensal"></canvas>
+            </div>
+        </section>
+    </main>
+    <script src="static/script.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            carregarResumo();
+        });
+    </script>
+</body>
+</html>
