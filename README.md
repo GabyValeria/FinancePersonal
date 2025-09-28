@@ -1,6 +1,6 @@
 # 📊 Finanças Pessoais - Controle Financeiro
 
-> **Status:** Versão 1.0 Completa
+> **Status:** Versão 1.0 Completa ✅
 
 ### Um sistema web simples e eficaz para gerenciamento de finanças pessoais. Acompanhe suas receitas e despesas, visualize seu progresso com gráficos interativos e planeje seu futuro financeiro.
 
