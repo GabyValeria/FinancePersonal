@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meu Controle Financeiro</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js" defer></script>
+    <script src="{{ url_for('static', filename='js/main.js') }}" defer></script>
+    <script src="{{ url_for('static', filename='js/chart-config.js') }}" defer></script>
+</head>
+<body>
+    <header class="main-header">
+        <h1>Meu Controle Financeiro</h1>
+    </header>
+
+    <main class="main-container">
+
+        <section id="dashboard" class="card" aria-labelledby="dashboard-title">
+            <h2 id="dashboard-title">Resumo Financeiro</h2>
+            <div class="summary-container">
+                <div class="summary-item">
+                    <h3>Receitas</h3>
+                    <p id="total-receitas" class="valor-receita">R$ 0,00</p>
+                </div>
+            <div class="summary-item">
+                <h3>Despesas</h3>
+                <p id="total-despesas" class="valor-despesa">R$ 0,00</p>
+            </div>
+            <div class="summary-item">
+                <h3>Saldo Atual</h3>
+                <p id="saldo-atual" class="valor-saldo">R$ 0,00</p>
+            </div>
+    </div>
+</section>
+
+        <section id="charts" class="card" aria-labelledby="charts-title">
+            <h2 id="charts-title">Despesas por Categoria</h2>
+            <div class="chart-container">
+                <canvas id="despesasCategoriaChart"></canvas>
+            </div>
+        </section>
+        
+        <section class="card" aria-labelledby="form-transacao-title">
+            <h2 id="form-transacao-title">Adicionar Nova Transação</h2>
+            <form id="add-transacao-form" class="form-grid">
+                </form>
+        </section>
+
+        <section id="historico" class="card" aria-labelledby="historico-title">
+            <h2 id="historico-title">Histórico de Transações</h2>
+            <div class="toolbar">
+                </div>
+            <div class="table-wrapper">
+                <table id="tabela-transacoes">
+                    </table>
+            </div>
+        </section>
+        
+        <section id="orcamentos-section" class="card" aria-labelledby="orcamento-title">
+            <h2 id="orcamento-title">Orçamento Mensal</h2>
+            <div id="lista-orcamentos"></div>
+        </section>
+        
+        <section id="metas-section" class="card" aria-labelledby="metas-title">
+            <h2 id="metas-title">Metas de Economia</h2>
+            <details>
+                <summary>Criar nova meta</summary>
+                <form id="add-meta-form" class="form-grid">
+                    </form>
+            </details>
+            <div id="lista-metas"></div>
+        </section>
+
+    </main> <div id="edit-modal" class="modal"></div>
+    <div id="toast-container"></div>
+
+</body>
+</html>
