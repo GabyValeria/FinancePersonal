@@ -1,0 +1,371 @@
+/* ==========================================================================
+   Finanças Pessoais - Folha de Estilos v2.0
+   ==========================================================================
+   ÍNDICE:
+   1. Definições Globais (Fontes, Variáveis de Tema)
+   2. Reset Básico e Estilos de Corpo
+   3. Estrutura de Layout Principal
+   4. Componentes Reutilizáveis
+      - Cards
+      - Formulários
+      - Botões
+      - Tabelas
+      - Barras de Progresso
+      - Notificações (Toast)
+   5. Estilos Específicos de Seção
+      - Dashboard
+      - Metas
+   6. Classes Utilitárias
+   7. Animações (Keyframes)
+   8. Media Queries (Responsividade e Tema Escuro)
+   ========================================================================== */
+
+
+/* ==========================================================================
+   1. Definições Globais (Fontes, Variáveis de Tema)
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+:root {
+  --font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+
+  /* Cores - Tema Claro (Padrão) */
+  --primary-color: #3B82F6; /* Azul */
+  --primary-hover: #2563EB;
+  --accent-color: #10B981; /* Verde/Turquesa */
+  --text-primary: #1F2937; /* Cinza bem escuro */
+  --text-secondary: #6B7280; /* Cinza médio */
+  --bg-primary: #F3F4F6; /* Fundo da página */
+  --bg-secondary: #FFFFFF; /* Fundo dos cards */
+  --border-color: #E5E7EB;
+  --receita-color: #059669; /* Verde escuro */
+  --despesa-color: #DC2626; /* Vermelho escuro */
+  --shadow-color: 220, 224, 230;
+}
+
+
+/* ==========================================================================
+   2. Reset Básico e Estilos de Corpo
+   ========================================================================== */
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-family);
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  line-height: 1.6;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+h1, h2, h3 {
+  font-weight: 600;
+}
+
+h1 { font-size: 1.75rem; }
+h2 { font-size: 1.25rem; margin-bottom: 1.25rem; }
+h3 { font-size: 1rem; color: var(--text-secondary); margin-bottom: 0.5rem; }
+small { color: var(--text-secondary); }
+
+
+/* ==========================================================================
+   3. Estrutura de Layout Principal
+   ========================================================================== */
+
+.main-header {
+  background-color: var(--bg-secondary);
+  padding: 1.5rem 2rem;
+  border-bottom: 1px solid var(--border-color);
+  text-align: center;
+  position: sticky; /* Efeito "grudento" no topo */
+  top: 0;
+  z-index: 100;
+  backdrop-filter: blur(8px); /* Efeito de vidro fosco para navegadores modernos */
+}
+
+.main-container {
+  /* Define um container centralizado com largura máxima */
+  max-width: 900px; 
+  margin: 0 auto; /* Centraliza o container na página */
+  
+  /* Espaçamento interno e entre os elementos */
+  padding: 2rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 3.5rem; /* AUMENTAMOS O ESPAÇO ENTRE AS SEÇÕES */
+}
+
+/* ==========================================================================
+   4. Componentes Reutilizáveis
+   ========================================================================== */
+
+/* -----------------------------------------
+   Cards
+----------------------------------------- */
+.card {
+  background: var(--bg-secondary);
+  padding: 1.5rem;
+  border-radius: 12px;
+  border: 1px solid var(--border-color);
+  box-shadow: 0 4px 6px -1px rgba(var(--shadow-color), 0.1), 0 2px 4px -2px rgba(var(--shadow-color), 0.1);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 15px -3px rgba(var(--shadow-color), 0.1), 0 4px 6px -4px rgba(var(--shadow-color), 0.1);
+}
+
+/* -----------------------------------------
+   Formulários
+----------------------------------------- */
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group.span-2 {
+  grid-column: span 2;
+}
+
+.form-grid label {
+  margin-bottom: 0.5rem;
+  font-size: 0.9em;
+  font-weight: 500;
+}
+
+input, select {
+  padding: 0.75rem;
+  border: 1px solid var(--border-color);
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  border-radius: 8px;
+  font-size: 1rem;
+  font-family: inherit;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+input:focus, select:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px rgba(var(--primary-color), 0.2);
+}
+
+/* -----------------------------------------
+   Botões
+----------------------------------------- */
+button, .btn-export {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  background-image: linear-gradient(to right, var(--primary-color) 0%, var(--primary-hover) 100%);
+  color: white;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 1rem;
+  border-radius: 8px;
+  text-align: center;
+  text-decoration: none;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+button:hover, .btn-export:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+}
+
+button:active {
+  transform: translateY(0px) scale(0.98);
+}
+
+.btn-export {
+  background-image: linear-gradient(to right, var(--accent-color) 0%, #059669 100%);
+}
+
+/* -----------------------------------------
+   Tabelas
+----------------------------------------- */
+.table-wrapper {
+  max-height: 500px;
+  overflow-y: auto;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+}
+
+#tabela-transacoes {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+#tabela-transacoes th,
+#tabela-transacoes td {
+  padding: 1rem;
+  text-align: left;
+}
+
+#tabela-transacoes th {
+  background-color: var(--bg-primary);
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+}
+
+#tabela-transacoes tbody tr {
+  border-bottom: 1px solid var(--border-color);
+}
+
+#tabela-transacoes tbody tr:last-child {
+  border-bottom: none;
+}
+
+#tabela-transacoes tbody tr:hover {
+  background-color: var(--bg-primary);
+}
+
+/* -----------------------------------------
+   Barras de Progresso
+----------------------------------------- */
+.progress-bar {
+  width: 100%;
+  background-color: var(--border-color);
+  border-radius: 99px;
+  overflow: hidden;
+  height: 16px;
+}
+
+.progress-bar-fill {
+  height: 100%;
+  background-image: linear-gradient(to right, var(--accent-color), var(--primary-color));
+  border-radius: 99px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding-right: 0.5rem;
+  color: white;
+  font-weight: 600;
+  font-size: 0.7rem;
+  transition: width 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+/* -----------------------------------------
+   Notificações (Toast)
+----------------------------------------- */
+#toast-container {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 2000;
+}
+
+.toast {
+  padding: 1rem 1.5rem;
+  margin-bottom: 1rem;
+  border-radius: 8px;
+  color: white;
+  font-weight: 500;
+  box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -2px rgba(0,0,0,0.05);
+  transform: translateX(calc(100% + 20px));
+  animation: slideIn 0.5s forwards cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.toast.success { background-color: var(--accent-color); }
+.toast.error { background-color: var(--despesa-color); }
+
+
+/* ==========================================================================
+   5. Estilos Específicos de Seção
+   ========================================================================== */
+
+#dashboard {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 1rem;
+}
+
+#dashboard .card {
+  padding: 1rem;
+  text-align: center;
+}
+
+#dashboard p {
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+#saldo-atual { color: var(--primary-color); }
+.valor-receita { color: var(--receita-color); }
+.valor-despesa { color: var(--despesa-color); }
+
+td button {
+  padding: 0.25rem 0.5rem;
+  font-size: 0.8rem;
+}
+
+/* ==========================================================================
+   6. Classes Utilitárias
+   ========================================================================== */
+
+/* (Nenhuma classe utilitária necessária no momento) */
+
+
+/* ==========================================================================
+   7. Animações (Keyframes)
+   ========================================================================== */
+
+@keyframes slideIn {
+  to {
+    transform: translateX(0);
+  }
+}
+
+/* ==========================================================================
+   8. Media Queries (Responsividade e Tema Escuro)
+   ========================================================================== */
+
+/* Tema Escuro (ativado pela preferência do sistema) */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --primary-color: #60A5FA;
+    --primary-hover: #93C5FD;
+    --accent-color: #34D399;
+    --text-primary: #F9FAFB;
+    --text-secondary: #9CA3AF;
+    --bg-primary: #111827;
+    --bg-secondary: #1F2937;
+    --border-color: #374151;
+    --receita-color: #34D399;
+    --despesa-color: #F87171;
+    --shadow-color: 0, 0, 0;
+  }
+}
+
+/* -----------------------------------------
+   Toolbar (Filtros e Ações)
+----------------------------------------- */
+.toolbar {
+  display: flex;
+  justify-content: space-between; /* Empurra os filtros para a esquerda e a exportação para a direita */
+  align-items: center; /* <<< A MÁGICA ACONTECE AQUI: alinha tudo verticalmente */
+  flex-wrap: wrap; /* Permite que os itens quebrem a linha em telas muito pequenas */
+  gap: 1rem; /* Espaçamento entre os grupos caso quebrem a linha */
+  margin-bottom: 1.5rem; /* Espaço entre a toolbar e a tabela */
+}
+
+.filtros {
+  display: flex;
+  align-items: center; /* Alinha os labels, inputs e o botão de filtro entre si */
+  gap: 0.75rem; /* Espaço entre os itens do filtro */
+  flex-wrap: wrap; /* Permite que os filtros quebrem a linha em telas menores */
+}
