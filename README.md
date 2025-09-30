@@ -116,5 +116,5 @@ Este projeto está sob a licença **MIT**. Veja o arquivo `LICENSE` para mais de
 ---
 
 <p align="center">
-  Desenvolvido com ❤️ por Gaby Valéria.
+  Desenvolvido com ❤️ por Gabrielle Valéria.
 </p>
